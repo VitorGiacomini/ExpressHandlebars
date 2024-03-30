@@ -1,5 +1,14 @@
 const express = require('express');
 const app = express();
+
+app.use(
+	express.urlencoded({
+		extended: true,
+	})
+);
+
+app.use(express.json());
+
 const exphbs = require('express-handlebars');
 
 app.engine('handlebars', exphbs.engine());
@@ -8,34 +17,62 @@ app.set('view engine', 'handlebars');
 var eventos = [
 	{
 		id: 1,
-		nomeEvento: 'Calourada IFMS',
-		dataEvento: '30-03-2024',
-		horarioEvento: '00:00',
+		nomeEvento: 'Ana Gonçalves da Silva',
+		dataEvento: 'ana.silva',
+		horaEvento: '',
+	},
+	{
+		id: 2,
+		nomeEvento: 'Pedro Bittencurt',
+		dataEvento: 'pedro_bittencurt',
+		horaEvento: '',
+	},
+	{
+		id: 3,
+		nomeEvento: 'Alex Bastos de Souza',
+		dataEvento: 'alex.bsouza',
+		horaEvento: '',
 	},
 ];
 
-var proxEvento = 2;
+var proximoId = 4;
 
+//Home
 app.get('/', (req, res) => {
-	res.render('paginaInicial');
-});
-app.get('/eventos/novo', (req, res) => {
-	res.render('cadastroEventos');
+	res.redirect('/eventos');
 });
 
+//Cadastro de usuário (GET)
+app.get('/eventos/novo', (req, res) => {
+	res.render('formCadastroEventos');
+});
+
+//Ver usuário específico
+app.get('/eventos/:id', (req, res) => {
+	const id = parseInt(req.params.id);
+
+	const evento = eventos.find((user) => user.id === id);
+
+	res.render('evento', { evento });
+});
+
+//Cadastro de usuário (POST)
 app.post('/eventos/novo', (req, res) => {
 	const nomeEvento = req.body.nomeEvento;
 	const dataEvento = req.body.dataEvento;
-	const horarioEvento = req.body.horarioEvento;
+	const horaEvento = req.body.horaEvento;
 
 	eventos.push({
-		id: proxEvento++,
+		id: proximoId++,
 		nomeEvento: nomeEvento,
 		dataEvento: dataEvento,
-		horarioEvento: horarioEvento,
+		horaEvento: horaEvento,
 	});
+
 	res.redirect('/');
 });
+
+//Listagem de usuários
 app.get('/eventos', (req, res) => {
 	res.render('eventos', { eventos });
 });

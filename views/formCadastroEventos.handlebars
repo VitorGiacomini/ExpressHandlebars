@@ -1,30 +1,19 @@
 <main>
-    <h1>Cadastro de Evento:</h1>
+	<h1>Cadastro de Evento:</h1>
 
-    <form action="/eventos/novo" method='post'>
-        <div>
-            <label for="nomeEvento">Nome do Evento: </label>
-            <input type="text" id="nomeEvento" name="nomeEvento"/>
-        </div>
-        <div>
-            <label for="dataEvento">Data do Evento</label>
-            <input type="date" id="dataEvento" name="dataEvento"/>
-        </div>
-        <div>
-            <label for="horarioEvento">Hora do Evento:</label>
-            <input type="time" id="horarioEvento" name="horarioEvento"/>
-        </div>
-        <div>
-            <p>Entrada:</p>
-            <input type="radio" id="entradaGratuita" name="entrada" value="gratuita">
-            <label for="entradaGratuita">Gratuita</label><br>
-            <input type="radio" id="entradaPaga" name="entrada" value="paga">
-            <label for="entradaPaga">Paga</label><br>
-        </div>
-        <div id="valorEntrada">
-            <label for="valor">Valor da Entrada:</label>
-            <input type="number" id="valor" name="valor" step="0.01" min="0">
-        </div>
-        <button type="submit">Cadastrar Evento</button>
-    </form>
+	<form action='/eventos/novo' method='post'>
+		<div>
+			<label for='nomeEvento'>Nome do Evento: </label>
+			<input type='text' id='nomeEvento' name='nomeEvento' />
+		</div>
+		<div>
+			<label for='dataEvento'>Data do Evento: </label>
+			<input type='date' id='dataEvento' name='dataEvento' />
+		</div>
+		<div>
+			<label for='horaEvento'>Hora do Evento: </label>
+			<input type='time' id='horaEvento' name='horaEvento' />
+		</div>
+		<button type='submit'>Cadastrar Evento</button>
+	</form>
 </main>

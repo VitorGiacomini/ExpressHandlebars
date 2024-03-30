@@ -1,10 +1,28 @@
 <main>
-    <h1>Eventos</h1>
-    <table border='1'>
-        <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-    </table>
+	<h1>Eventos</h1>
+	<table border='1'>
+		<tr>
+			<th>Id</th>
+			<th>Nome do Evento: </th>
+			<th>Data do Evento: </th>
+			<th>Horario do Evento: </th>
+		</tr>
+		{{#if eventos}}
+			{{#each eventos}}
+				<tr>
+					<td>{{this.id}}</td>
+					<td>{{this.nomeEvento}}</td>
+					<td>{{this.dataEvento}}</td>
+					<td>{{this.horaEvento}}</td>
+					<td>
+						<a href='/evento/{{this.id}}'>{{this.nomeEvento}}</a>
+					</td>
+				</tr>
+			{{/each}}
+		{{else}}
+			<tr>
+				<td colspan='3'>Não ha eventos cadastrados</td>
+			</tr>
+		{{/if}}
+	</table>
 </main>
