@@ -8,7 +8,7 @@ app.use(
 );
 
 app.use(express.json());
-
+app.use(express.static('public'))
 const exphbs = require('express-handlebars');
 
 app.engine('handlebars', exphbs.engine());
@@ -77,6 +77,6 @@ app.get('/eventos', (req, res) => {
 	res.render('eventos', { eventos });
 });
 
-app.listen(3000, () => {
+app.listen(3001, () => {
 	console.log('Server rodando');
 });
