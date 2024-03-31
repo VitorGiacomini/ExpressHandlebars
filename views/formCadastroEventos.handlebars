@@ -1,10 +1,17 @@
 <main>
+	<link rel='stylesheet' href='/css/cadastroForm.css' />
+	<link rel='stylesheet' href='/css/index.css' />
 	<h1>Cadastro de Evento:</h1>
 
 	<form action='/eventos/novo' method='post'>
 		<div>
 			<label for='nomeEvento'>Nome do Evento: </label>
-			<input type='text' id='nomeEvento' name='nomeEvento' />
+			<input
+				type='text'
+				id='nomeEvento'
+				name='nomeEvento'
+				placeholder='Nome do Evento'
+			/>
 		</div>
 		<div>
 			<label for='dataEvento'>Data do Evento: </label>
@@ -16,4 +23,6 @@
 		</div>
 		<button type='submit'>Cadastrar Evento</button>
 	</form>
+
+	<a href='/'><button type='button'>Voltar à Página Inicial</button></a>
 </main>

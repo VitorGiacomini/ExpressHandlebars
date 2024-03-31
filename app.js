@@ -8,7 +8,7 @@ app.use(
 );
 
 app.use(express.json());
-app.use(express.static('public'))
+app.use(express.static('public'));
 const exphbs = require('express-handlebars');
 
 app.engine('handlebars', exphbs.engine());
@@ -17,46 +17,43 @@ app.set('view engine', 'handlebars');
 var eventos = [
 	{
 		id: 1,
-		nomeEvento: 'Ana Gonçalves da Silva',
-		dataEvento: 'ana.silva',
-		horaEvento: '',
+		nomeEvento: 'Jão SUPERTUNÊ',
+		dataEvento: '06-04-2024',
+		horaEvento: '22:00',
 	},
 	{
 		id: 2,
-		nomeEvento: 'Pedro Bittencurt',
-		dataEvento: 'pedro_bittencurt',
-		horaEvento: '',
+		nomeEvento: 'IMPROVÁVEL - BARBIXAS',
+		dataEvento: '30-03-2024',
+		horaEvento: '19:00',
 	},
 	{
 		id: 3,
-		nomeEvento: 'Alex Bastos de Souza',
-		dataEvento: 'alex.bsouza',
-		horaEvento: '',
+		nomeEvento: 'SEPULTURA',
+		dataEvento: '08-08-2024',
+		horaEvento: '20:00',
 	},
 ];
 
 var proximoId = 4;
 
-//Home
 app.get('/', (req, res) => {
-	res.redirect('/eventos');
+	res.redirect('eventos');
 });
 
-//Cadastro de usuário (GET)
 app.get('/eventos/novo', (req, res) => {
 	res.render('formCadastroEventos');
 });
 
-//Ver usuário específico
 app.get('/eventos/:id', (req, res) => {
 	const id = parseInt(req.params.id);
 
-	const evento = eventos.find((user) => user.id === id);
+	const evento = eventos.find((evento) => evento.id === id);
 
 	res.render('evento', { evento });
 });
 
-//Cadastro de usuário (POST)
+//Cadastro de evento (POST)
 app.post('/eventos/novo', (req, res) => {
 	const nomeEvento = req.body.nomeEvento;
 	const dataEvento = req.body.dataEvento;
@@ -72,7 +69,16 @@ app.post('/eventos/novo', (req, res) => {
 	res.redirect('/');
 });
 
-//Listagem de usuários
+// Excluir evento
+app.post('/eventos/excluir/:id', (req, res) => {
+	const id = parseInt(req.params.id);
+
+	eventos = eventos.filter((evento) => evento.id !== id);
+
+	res.redirect('/');
+});
+
+//Listagem de eventos
 app.get('/eventos', (req, res) => {
 	res.render('eventos', { eventos });
 });
