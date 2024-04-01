@@ -7,7 +7,8 @@
 			<th class='title'> Nome do Evento: </th>
 			<th class='title'> Data do Evento: </th>
 			<th class='title'> Horario do Evento: </th>
-			<th class='title'> Acessar Página: </th>
+			<th class='title'> Ações: </th>
+
 		</tr>
 		{{#if eventos}}
 			{{#each eventos}}
@@ -17,13 +18,16 @@
 					<td>{{this.dataEvento}}</td>
 					<td>{{this.horaEvento}}</td>
 					<td>
-						<a href='eventos/{{this.id}}'>{{this.nomeEvento}}</a>
+						<a href='eventos/{{this.id}}' class='linkVisualizar'>Abrir</a>
+						<form action='/eventos/excluir/{{this.id}}' method='post'>
+							<button type='submit' class='botaoExcluir'>Excluir</button>
+						</form>
 					</td>
 				</tr>
 			{{/each}}
 		{{else}}
 			<tr>
-				<td colspan='3'>Não ha eventos cadastrados</td>
+				<td colspan='3'>Não há eventos cadastrados</td>
 			</tr>
 		{{/if}}
 	</table>

@@ -69,7 +69,7 @@ app.post('/eventos/novo', (req, res) => {
 	res.redirect('/');
 });
 
-// Excluir evento
+/// Excluir evento
 app.post('/eventos/excluir/:id', (req, res) => {
 	const id = parseInt(req.params.id);
 
