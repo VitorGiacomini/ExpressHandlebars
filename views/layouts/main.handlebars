@@ -8,14 +8,15 @@
 	</head>
 	<body>
 		<header>
-    <h1 class='titulo'><a href='/'>GESTÃO DE EVENTOS</a></h1>
-    <nav>
-        {{#if cadastroOuAtt}}
-        {{else}}
-            <a href='/eventos/novo' class='botaoCadastrar'>Novo Evento</a>
-        {{/if}}
-    </nav>
-</header>
+			{{#if pagInicio}}{{else}}
+				<h1 class='titulo'><a href='/'>GESTÃO DE EVENTOS</a></h1>
+			{{/if}}
+			<nav>
+				{{#if cadastroOuAtt}}{{else}}
+					<a href='/eventos/novo' class='botaoCadastrar'>Novo Evento</a>
+				{{/if}}
+			</nav>
+		</header>
 
 		{{{body}}}
 		<footer>

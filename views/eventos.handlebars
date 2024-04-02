@@ -7,6 +7,8 @@
 			<th class='title'> Nome do Evento: </th>
 			<th class='title'> Data do Evento: </th>
 			<th class='title'> Horario do Evento: </th>
+			<th class='title'> Local:</th>
+			<th class='title'> Valor do Ingresso: </th>
 			<th class='title'> Ações: </th>
 
 		</tr>
@@ -17,6 +19,8 @@
 					<td>{{this.nomeEvento}}</td>
 					<td>{{this.dataEvento}}</td>
 					<td>{{this.horaEvento}}</td>
+					<td>{{this.localEvento}}</td>
+					<td>{{this.valorIngresso}}</td>
 					<td>
 						<a href='eventos/{{this.id}}' class='linkVisualizar'>Abrir</a>
 						<form action='/eventos/excluir/{{this.id}}' method='post'>
