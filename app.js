@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/eventos/novo', (req, res) => {
-	res.render('formCadastroEventos');
+	res.render('forms', { cadastroOuAtt: true });
 });
 
 app.get('/eventos/:id', (req, res) => {
@@ -50,10 +50,36 @@ app.get('/eventos/:id', (req, res) => {
 
 	const evento = eventos.find((evento) => evento.id === id);
 
-	res.render('evento', { evento });
+	res.render('evento', { evento, cadastroOuAtt: true });
+});
+app.get('/eventos/:id/atualizar', (req, res) => {
+	const id = parseInt(req.params.id);
+	const evento = eventos.find((evento) => evento.id === id);
+	res.render('forms', {
+		evento,
+		action: `/eventos/${id}/atualizar`,
+		isUpdate: true,
+	});
 });
 
-//Cadastro de evento (POST)
+app.post('/eventos/:id/atualizar', (req, res) => {
+	const id = parseInt(req.params.id);
+	const nomeEvento = req.body.nomeEvento;
+	const dataEvento = req.body.dataEvento;
+	const horaEvento = req.body.horaEvento;
+
+	const index = eventos.findIndex((evento) => evento.id === id);
+	eventos[index] = {
+		id,
+		nomeEvento,
+		dataEvento,
+		horaEvento,
+		cadastroOuAtt: true,
+	};
+
+	res.redirect('/');
+});
+
 app.post('/eventos/novo', (req, res) => {
 	const nomeEvento = req.body.nomeEvento;
 	const dataEvento = req.body.dataEvento;
