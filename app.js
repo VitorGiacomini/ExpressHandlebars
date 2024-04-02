@@ -59,6 +59,7 @@ app.get('/eventos/:id/atualizar', (req, res) => {
 		evento,
 		action: `/eventos/${id}/atualizar`,
 		isUpdate: true,
+		cadastroOuAtt: true,
 	});
 });
 
@@ -74,7 +75,6 @@ app.post('/eventos/:id/atualizar', (req, res) => {
 		nomeEvento,
 		dataEvento,
 		horaEvento,
-		cadastroOuAtt: true,
 	};
 
 	res.redirect('/');
