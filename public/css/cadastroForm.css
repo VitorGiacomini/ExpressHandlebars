@@ -51,19 +51,33 @@ button[type='submit'] {
 	border-radius: 5px;
 	cursor: pointer;
 }
-button[type='button'] {
+.voltar {
 	margin-top: 5px;
 	background-color: rgb(177, 26, 26);
 	color: #fff;
+	margin-top: 15px;
 	padding: 10px 20px;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
 	width: 360px;
 }
-button[type='button']:hover {
-	background-color: #860404;
+
+.voltar:hover {
+	background-color: #530606;
 }
-button[type='submit']:hover {
-	background-color: #0056b3;
+.atualizar {
+	margin-top: 5px;
+	background-color: rgb(0, 94, 255);
+	color: #fff;
+	margin-top: 15px;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 360px;
+}
+
+.atualizar:hover {
+	background-color: #002886;
 }

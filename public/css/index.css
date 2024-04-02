@@ -55,11 +55,8 @@ nav a {
 	color: white;
 }
 
-nav a:hover {
-	color: blue;
-}
 .botaoCadastrar {
-	background-color: #28a745;
+	background-color: #555555;
 	color: white;
 	padding: 10px 20px;
 	border: none;
@@ -68,5 +65,5 @@ nav a:hover {
 }
 
 .botaoCadastrar:hover {
-	background-color: #218838;
+	background-color: #393939;
 }
