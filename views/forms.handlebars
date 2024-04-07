@@ -1,4 +1,4 @@
-<main>
+<main class='formulario'>
 	<link rel='stylesheet' href='/css/cadastroForm.css' />
 	<link rel='stylesheet' href='/css/index.css' />
 	{{#if isUpdate}}
@@ -54,12 +54,12 @@
 				value='{{evento.valorIngresso}}'
 			/>
 		</div>
-		{{#if isUpdate}}
-			<button type='submit' class='atualizar'>Atualizar Evento</button>
-		{{else}}
-			<button type='submit' class='atualizar'>Cadastrar Evento</button>
-		{{/if}}
-	</form>
-
-	<a href='/'><button type='button' class='voltar'>Voltar à Página Inicial</button></a>
+	 <div class="button-container">
+        {{#if isUpdate}}
+            <button type='submit' class='atualizar'>Atualizar Evento</button>
+        {{else}}
+            <button type='submit' class='cadastrar'>Cadastrar Evento</button>
+        {{/if}}
+        <a href='/'><button type='button' class='voltar'>Voltar à Página Inicial</button></a>
+    </div>
 </main>

@@ -7,19 +7,20 @@
 		<title>Gestão de Eventos</title>
 	</head>
 	<body>
-		<header>
-			{{#if pagInicio}}{{else}}
-				<h1 class='titulo'><a href='/'>GESTÃO DE EVENTOS</a></h1>
-			{{/if}}
-			<nav>
-				{{#if cadastroOuAtt}}{{else}}
-					<a href='/eventos/novo' class='botaoCadastrar'>Novo Evento</a>
-				{{/if}}
-			</nav>
-		</header>
+	<header class='navbar'>
+    <a href='/'><img src='/src/logo.png' alt='Logo do Site' class='logo' /></a>
+    <nav>
+        <a href='/eventos/novo' class='botaoCadastrar'>
+            <img src='/src/+.svg' alt='Ícone de Adicionar' class='iconeAdicionar' />
+            Novo Evento
+        </a>
+    </nav>
+</header>
+
 
 		{{{body}}}
-		<footer>
+
+		<footer class='footer'>
 			<p>
 				©
 				<a href='https://www.instagram.com/vgiacominixx/' target='_blank'>Vitor
